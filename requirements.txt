@@ -1,5 +1,4 @@
 flask
-plotly
 seaborn
 matplotlib
 pandas
