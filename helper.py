@@ -6,12 +6,7 @@ import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 from math import sqrt
-from sklearn.cluster import KMeans
-from sklearn.metrics import silhouette_score
-import plotly.graph_objects as go
 from itertools import chain
-import plotly.express as px
-import plotly
 import json
 df=pd.read_pickle("df.csv" + '.pkl')
 df=df[df.popularity>0.3]
@@ -60,37 +55,4 @@ def getlen(name,artist):
     songs=songs[songs.artist_name==artist]
     length=len(songs)
     return length
-def chartshow(name,artist):
-    name=name.casefold()
-    artist=artist.casefold()   
-    chartdf=df[df.track_name==name]
-    chartdf=chartdf[chartdf.artist_name==artist].head(1)
-    num_types = ['int16', 'int32', 'int64', 'float16', 'float32', 'float64']
-    numdf2= chartdf.select_dtypes(include=num_types)
-    data=numdf2.head(1).values
-    data=data.tolist()
-    label = numdf2.columns
-    label=label.tolist()
-    data= list(chain.from_iterable(data))
-# Use `hole` to create a donut-like pie chart
-    figpi = go.Figure(data=[go.Pie(labels=label, values=data, hole=.6,title=f"{str.title(name)} Stats",)])
-    graph=json.dumps(figpi,cls=plotly.utils.PlotlyJSONEncoder)
-    return graph
-def chartshow2(result):
-    name=result.head(1)
-    name=name['track_name']
-    name=name[0]
-    ind=result.head(1)
-    ind=ind['index'].values
-    ind=ind[0]  
-    resultin=df[df.index==ind]
-    num_types = ['int16', 'int32', 'int64', 'float16', 'float32', 'float64']
-    numdf= resultin.select_dtypes(include=num_types)
-    data=numdf.head(1).values
-    data=data.tolist()
-    label = numdf.columns
-    label=label.tolist()
-    data= list(chain.from_iterable(data))
-    figpi = go.Figure(data=[go.Pie(labels=label, values=data, hole=.6,title=f"{name} Stats",)])
-    graph=json.dumps(figpi,cls=plotly.utils.PlotlyJSONEncoder)
-    return graph
+

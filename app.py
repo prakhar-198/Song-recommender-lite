@@ -19,11 +19,9 @@ def display():
     if length==0:
         return render_template("index.html",hi=hi)
     else:
-        graphJSON=helper.chartshow(args,args2)
         show=helper.result(args,args2)
         resultarg=helper.result1(args,args2)
-        graphJSON2=helper.chartshow2(resultarg)
-        return render_template("index.html",tables=[show.to_html()],graphJSON=graphJSON,graphJSON2=graphJSON2 )
+        return render_template("index.html",tables=[show.to_html()])
         
 if __name__=='__main__':
     app.run(debug=True)
