@@ -20,7 +20,6 @@ def display():
         return render_template("index.html",hi=hi)
     else:
         show=helper.result(args,args2)
-        resultarg=helper.result1(args,args2)
         return render_template("index.html",tables=[show.to_html()])
         
 if __name__=='__main__':

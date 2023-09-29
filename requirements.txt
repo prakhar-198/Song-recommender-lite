@@ -6,4 +6,5 @@ numpy
 tqdm
 gunicorn
 scikit-learn
+pickle5
 

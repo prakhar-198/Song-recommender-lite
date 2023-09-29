@@ -6,8 +6,8 @@ import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 from math import sqrt
-from itertools import chain
-import json
+from sklearn.cluster import KMeans
+from sklearn.metrics import silhouette_score
 df=pd.read_pickle("df.csv" + '.pkl')
 df=df[df.popularity>0.3]
 
@@ -39,15 +39,6 @@ def result(name,artist):
     result=result.drop('index',axis=1)
     result=result.drop_duplicates()
     return result
-def result1(name,artist):
-    result=recomends(name,artist).reset_index()
-    result=result.head(10)
-    for i in range(len(result.track_name)):
-       result.track_name[i]=str.title(result.track_name[i])
-    for i in range(len(result.artist_name)):
-       result.artist_name[i]=str.title(result.artist_name[i])
-    result=result.drop_duplicates()
-    return result
 def getlen(name,artist):
     name=name.casefold()
     artist=artist.casefold()
@@ -55,4 +46,3 @@ def getlen(name,artist):
     songs=songs[songs.artist_name==artist]
     length=len(songs)
     return length
-
