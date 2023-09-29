@@ -1,0 +1,102 @@
+table.dataframe, .dataframe th,.dataframe td {
+    border: none;
+    border-bottom: 1px solid #C8C8C8;
+    border-collapse: collapse;
+    text-align:center;
+    padding: 10px;
+    margin-bottom: 40px;
+    font-size: 0.9em;
+    background-color: rgba(255, 255, 255, 0.636);
+  
+  
+  }
+  table.dataframe:hover{
+    background-color:rgba(255, 255, 255, 0.999);
+    transform:translateY(4px); 
+    transition:all 0.3s ease-in-out
+    
+    }
+table{
+    color:black   
+  }
+form{
+    text-align: center;
+}
+input{
+    width:300px;
+    border: 0px;
+    border-radius: 15px;
+    padding:2px
+}
+body{
+    background-color: black;
+}
+button{
+    width: 38px;
+    height: 38px;
+    border: 0px;
+    border-radius: 50%;
+    padding: 5px;
+    box-shadow: 0 2px 4px darkslategray;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    
+}
+button:active {
+    background-color: #48abe0;
+    box-shadow: 0 0 2px darkslategray;
+    transform:translateY(2px) rotate(15deg) ;
+
+    
+  }
+  button:hover {
+    background-color: #1DB954;
+    box-shadow: 0 0 2px darkslategray;
+  }
+  @keyframes bh{
+    from{
+        transform: rotateX(10deg);
+    }
+    to{
+        transform: rotateY(30deg);
+    }
+  }
+div#in{
+    padding-bottom:10px ;
+    padding-top: 10px;
+}
+div#f{
+    margin-top: 20px;
+    width: 100%;
+    align-content: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    
+}
+div#b{
+    padding-left:15px;
+}
+input{
+    margin-top: 7px;
+    padding-left:7px;
+}
+h1{
+    margin-right: 20px;
+    margin-left: 20px;
+    font-family: 'Glegoo', serif;
+    text-align: center;
+    color:#1DB954;
+    border: 0px;
+    border-radius: 8px;
+    
+}
+center#nan{
+    font-family: 'Glegoo', serif;
+    font-size: medium;
+    margin-top: 20px;
+}
+
+
+
+

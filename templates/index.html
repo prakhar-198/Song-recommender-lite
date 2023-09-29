@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Bungee+Outline&family=Glegoo:wght@700&display=swap" rel="stylesheet">
+
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/index.css" />
+    <title>Spotify Song Recommender</title>
+</head>
+<body>
+  <div id='head'>
+  <h1>Spotify Song Recommender</h1>
+  </div>
+   <form action='/search'>
+   <div id='f'>
+    <div id='in'>
+    <input type=search name='n' id='tname'>
+    <input type=search name='an' id='aname'>
+    </div>
+    <div id='b'>
+    <button type="submit"><img src="/static/search.png" alt="Search" width="27" height="25"></button>
+    </div>
+  </div>
+   </form> 
+   <center id="nan" style="color:aliceblue;">
+    {{hi}}
+   </center>
+  <center>
+   {% for table in tables %}
+   {{ table|safe }}
+   {% endfor %}
+   </center>
+
+    <div id='chart' class='chart'”></div>
+    <div id='chart2' class='chart2'”></div>
+    
+</body>
+<script>
+  document.getElementById("tname").placeholder = " Track name..";
+  document.getElementById("aname").placeholder = " Artist name..";
+</script>
+<script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+<script type='text/javascript'>
+   var graphs={{graphJSON | safe}}; 
+   var graphs2={{graphJSON2 | safe}};
+   Plotly.plot('chart',graphs,{});
+   Plotly.plot('chart2',graphs2,{});
+
+
+</script>
+</html>
